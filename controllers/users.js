@@ -3,7 +3,7 @@ const bcrypt    = require("bcryptjs")
 const passport  = require("passport");
 
 /* Register logic */
-exports.registerUser = async(req,res)=>{
+exports.registerUser = (req,res)=>{
     const { name, email, password, password2 } = req.body;
     console.log(name);
     console.log(email);
@@ -48,12 +48,8 @@ exports.registerUser = async(req,res)=>{
 }
 
 /* Login logic */
-exports.login = (req,res,next) => {
-    passport.authenticate('local', {
-      successRedirect:"/api/books",
-      failureMessage:"Login failed"
-    })(req, res, next)
-}
+exports.login = passport.authenticate('local',{ successRedirect: '/api/books',
+failureRedirect: "/" })
 
 /* Logout logic */
 exports.logout = (req,res)=>{

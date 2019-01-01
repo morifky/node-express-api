@@ -18,6 +18,7 @@ mongoose.connect("mongodb://latihan:password123@ds115340.mlab.com:15340/latihan_
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
+
 /* Express Session */
 app.use(
     session({
@@ -34,6 +35,7 @@ app.use(passport.session());
 /* Routes */
 app.use(bookRouter);
 app.use(userRouter);
+
 
 /* app listen */
 app.listen(process.env.PORT||3000,()=>console.log("server started!"))
