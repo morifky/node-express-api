@@ -19,6 +19,7 @@ exports.postBook = async(req,res)=>{
         genre   : newGenre,
         year    : newYear
     }
+    console.log(newBook)
     await Book.create(newBook)
     .then((newBook)=>res.json(newBook))
     .catch((err)=>console.error(err));
@@ -43,9 +44,9 @@ exports.postEditBook = async (req,res)=>{
         genre   : editGenre,
         year    : editYear
     }
-    console.log(req.body)
+    console.log(editBook)
     await Book.findByIdAndUpdate(req.params.id,editBook)
-    .then((updateBook)=>res.json(updateBook))
+    .then((updateBook)=>res.redirect("/api/books"))
     .catch((err)=>console.error(err));
 }
 
