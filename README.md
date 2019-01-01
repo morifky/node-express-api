@@ -1,5 +1,5 @@
 # books-api
-REST API demo
+REST API demo with passport authentication
 
 
-# Simple REST API using express.js
+ 
